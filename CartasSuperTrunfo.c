@@ -1,103 +1,111 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    
-    char estado [20], estado2[20];
-    char codigo[50], codigo2[50];
-    char cidade[20], cidade2[20];
-    unsigned long int populacao, populacao2;
-    double area, area2;
-    double pib, pib2;
-    int pontos_turisticos, pontos_turisticos2;
+int main () {
 
-    printf("Olá, bem-vindo ao cadastro de cartas do jogo Super Trunfo. Vamos começar?\n\n");
-
-    printf("CADASTRO DA CARTA 1:\n");
-
-    printf("ESTADO:");
-    scanf("%s", estado);
-
-    printf("CÓDIGO:");
-    scanf("%s", codigo);
-
-    printf("CIDADE:");
-    scanf(" %19[^\n]", cidade);
-
-    printf("POPULAÇÃO:");
-    scanf("%lu", &populacao);
-
-    printf("ÁREA:");
-    scanf("%lf", &area);
-
-    printf("PIB:");
-    scanf("%lf", &pib);
-
-    printf("PONTOS TURISTICOS:");
-    scanf("%d", &pontos_turisticos);
-
-    float pib_per_capita1 = (double) pib / populacao;
-    float densidade1 = (double) populacao / area;
-
-    printf("\n""CADASTRO DA CARTA 2:\n");
-
-    printf("ESTADO:");
-    scanf("%s", estado2);
-
-    printf("CÓDIGO:");
-    scanf("%s", codigo2);
-
-    printf("CIDADE:");
-    scanf(" %19[^\n]", cidade2);
-
-    printf("POPULAÇÃO:");
-    scanf("%lu", &populacao2);
-
-    printf("ÁREA:");
-    scanf("%lf", &area2);
-
-    printf("PIB:");
-    scanf("%lf", &pib2);
-
-    printf("PONTOS TURISTICOS:");
-    scanf("%d", &pontos_turisticos2);
-
-    float pib_per_capita2 = (double) pib2 / populacao2;
+    int populacao1 = 212000000, populacao2 = 45700000;
+    float area1 = 8510000, area2 = 2780000;
+    float pib1 = 2179000000000, pib2 = 633300000000;
+    int pontos_turisticos1 = 82, pontos_turisticos2 = 43;
+    float densidade1 = (double) populacao1 / area1;
     float densidade2 = (double) populacao2 / area2;
+    int escolha_jogador1;
 
-    printf("\n\n""CARTA 1:\n");
+    printf("BEM-VINDO A COMPARAÇÃO DE ATRIBUTOS!!\n");
+    printf("ESCOLHA O ATRIBUTO PARA COMPARAÇÃO: \n");
+    printf("1 - POPULAÇÃO\n");
+    printf("2 - ÁREA\n");
+    printf("3 - PIB\n");
+    printf("4 - PONTOS TURÍSTICOS\n");
+    printf("5 - DENSIDADE DEMOGRÁFICA\n");
+    printf("ESCOLHA: ");
+    scanf("%d", &escolha_jogador1);
 
-    printf("ESTADO: %s\n", estado);
-    printf("CÓDIGO: %s\n", codigo);
-    printf("CIDADE: %s\n", cidade);
-    printf("POPULAÇÃO: %d\n", populacao);
-    printf("ÁREA: %.2f\n", area);
-    printf("PIB: %.2f\n", pib);
-    printf("PONTOS TURISTICOS: %d\n", pontos_turisticos);
-    printf("PIB PER CAPITA: %.2f\n", pib_per_capita1);
-    printf("DENSIDADE POPULACIONAL: %.2f\n", densidade1);
+    switch (escolha_jogador1)
+    {
+    case 1:
+    printf("VOCÊ ESCOLHEU POPULAÇÃO\n");
+    printf("POPULAÇÃO DO BRASIL: %d\n", populacao1);
+    printf("POPULAÇÃO DA ARGENTINA: %d\n", populacao2);
 
-
-    printf("\n""CARTA 2:\n");
-
-    printf("ESTADO: %s\n", estado2);
-    printf("CÓDIGO: %s\n", codigo2);
-    printf("CIDADE: %s\n", cidade2);
-    printf("POPULAÇÃO: %d\n", populacao2);
-    printf("ÁREA: %.2f\n", area2);
-    printf("PIB: %.2f\n", pib2);
-    printf("PONTOS TURISTICOS: %d\n", pontos_turisticos2);
-    printf("PIB PER CAPITA: %.2f\n", pib_per_capita2);
-    printf("DENSIDADE POPULACIONAL: %.2f\n\n", densidade2);
-
-    printf("COMPARAÇÃO DAS CARTAS: (ATRIBUTO: POPULAÇÃO)\n");
-   
-    printf("CARTA 1 - %s: %d\n", cidade, populacao);
-    printf("CARTA 2 - %s: %d\n", cidade2, populacao2);
-
-    if (populacao > populacao2){
-        printf("CARTA 1 VENCEU");
-    } else {
-        printf("CARTA 2 VENCEU");
+    if (populacao1 == populacao2) {
+    printf("HOUVE UM EMPATE!!\n");
     }
-    return 0;
+    else if (populacao1 > populacao2){
+    printf("BRASIL VENCEU!!\n");
+    }
+    else {
+    printf("ARGENTINA VENCEU!!\n");
+    }
+    break;
+
+    case 2:
+    printf("VOCÊ ESCOLHEU ÁREA\n");
+    printf("ÁREA DO BRASIL: %.2f\n", area1);
+    printf("ÁREA DA ARGENTINA: %.2f\n", area2);
+    
+    if (area1 == area2){
+    printf("HOUVE UM EMPATE!!\n");
+    }
+    else if (area1 > area2){
+    printf("BRASIL VENCEU!!\n");
+    }
+    else {
+    printf("ARGENTINA VENCEU!!\n");
+    }
+    break;
+
+    case 3:
+    printf("VOCÊ ESCOLHEU PIB\n");
+    printf("PIB DO BRASIL: %.2f\n", pib1);
+    printf("PIB DA ARGENTINA: %.2f\n", pib2);
+
+    if (pib1 == pib2){
+    printf("HOUVE UM EMPATE!!\n");
+    }
+    else if (pib1 > pib2){
+    printf("BRASIL VENCEU!!\n");
+    }
+    else {
+    printf("ARGENTINA VENCEU!!\n");
+    }
+    break;
+    
+    case 4:
+    printf("VOCÊ ESCOLHEU PONTOS TURÍSTICOS\n");
+    printf("PONTOS TURÍSTICOS DO BRASIL: %d\n", pontos_turisticos1);
+    printf("PONTOS TURÍSTICOS DA ARGENTINA: %d\n", pontos_turisticos2);
+
+    if (pontos_turisticos1 == pontos_turisticos2){
+    printf("HOUVE UM EMPATE!!\n");
+    }
+    else if (pontos_turisticos1 > pontos_turisticos2){
+    printf("BRASIL VENCEU!!\n");
+    }
+    else {
+    printf("ARGENTINA VENCEU!!\n");
+    }
+    
+    case 5:
+    printf("VOCÊ ESCOLHEU DENSIDADE DEMOGRÁFICA\n");
+    printf("DENSIDADE DO BRASIL: %.2f\n", densidade1);
+    printf("DENSIDADE DA ARGENTINA: %.2f\n", densidade2);
+
+    if (densidade1 == densidade2){
+    printf("HOUVE UM EMPATE!!\n");
+    }
+    else if (densidade1 < densidade2){
+    printf("BRASIL VENCEU!!\n");
+    }
+    else {
+    printf("ARGENTINA VENCEU!!\n");
+    }
+    break;
+    
+    default:
+    printf("OPÇÃO INVÁLIDA!!");
+    break;
+}
+
+ return 0;
 }
